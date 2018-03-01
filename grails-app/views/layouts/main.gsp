@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>
-        <g:layoutTitle default="Grails"/>
+        <g:layoutTitle default="Schilling Store"/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -13,6 +13,13 @@
     <g:layoutHead/>
 </head>
 <body>
+<style>
+    body{
+        background-color: gold;
+        color: green;
+        font-weight:bold;
+    }
+</style>
 
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
@@ -26,7 +33,7 @@
                 <a class="navbar-brand" href="/#">
                     <i class="fa grails-icon">
                         <asset:image src="grails-cupsonly-logo-white.svg"/>
-                    </i> Grails
+                    </i> Schilling Store
                 </a>
             </div>
             <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">

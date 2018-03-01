@@ -45,25 +45,37 @@
         </li>
     </content>
 
-    <div class="svg" role="presentation">
-        <div class="grails-logo-container">
-            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
-        </div>
-    </div>
-
-    <div id="content" role="main">
+    <div id="content" role="main" style="background-color:#ffe43b" style="font-weight:bold" style="color:green">
         <section class="row colset-2-its">
-            <h1>Welcome to Grails</h1>
+            <h1>Welcome to the Schilling Store!
+            <style>
+                h1{
+                    white-space: pre-line;
+                }
+            </style>
+                Ketu-Sami: Styling and Create Project, Alex-Deryk: Categories, William-Emmett: Products, Sean-Parker: Manufacturers
+            </h1>
 
-            <p>
-                Congratulations, you have successfully started your first Grails application! At the moment
-                this is the default page, feel free to modify it to either redirect to a controller or display
-                whatever content you may choose. Below is a list of controllers that are currently deployed in
-                this application, click on each to execute its default action:
-            </p>
 
             <div id="controllers" role="navigation">
-                <h2>Available Controllers:</h2>
+            <div class="svg" role="presentation">
+                <div class="grails-logo-container">
+                <asset:image src="Crest.svg" class="grails-logo"/>
+            </div>
+            </div>
+    </div>
+
+<div id="content" role="main" style="background-color:#ffe43b" style="font-weight:bold" style="color:green">
+                <h2>Store Assets:</h2>
+                <div class="col-sm-6 col-right">
+                    <g:link controller="product">Products</g:link>
+                </div>
+                <div class="col-sm-6 col-right">
+                    <g:link controller="category">Categories</g:link>
+                </div>
+                <div class="col-sm-6 col-right">
+                    <g:link controller="manufacturer">Manufacturers</g:link>
+                </div>
                 <ul>
                     <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
                         <li class="controller">
