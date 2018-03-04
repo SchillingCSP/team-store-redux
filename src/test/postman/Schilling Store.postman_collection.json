@@ -1,0 +1,160 @@
+{
+	"info": {
+		"name": "Schilling Store",
+		"_postman_id": "a754fa32-3039-1d72-9163-2e97110ca483",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ProductOrder index",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "90af526c-f45f-46a0-8dfd-bdffc34b2ce9",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Have productOrder product.id 1\", function () {",
+							"    var found = false;",
+							"    jsonData.forEach(function (order) {if (order.product.id == 1) found = true});",
+							"    pm.expect(found).to.eql(true);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/productOrder/index.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productOrder",
+						"index.json"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ProductOrder save",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fb5899dc-89b2-460c-afc6-0568b363e560",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Have productOrder number is 14567\", function () {",
+							"    pm.expect(jsonData.number).to.eql('14567');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": 1,\n        \"product\": {\n            \"id\": 3\n        },\n        \"quantity\": 1,\n        \"number\": \"14567\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/productOrder/save.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productOrder",
+						"save.json"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "four",
+							"equals": true,
+							"disabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ProductOrder show 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a072ca74-36b4-440c-b93a-c9c0ccad7209",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Have productOrder product.id 1\", function () {",
+							"    pm.expect(jsonData.product.id).to.eql(1);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/productOrder/show/1.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productOrder",
+						"show",
+						"1.json"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
