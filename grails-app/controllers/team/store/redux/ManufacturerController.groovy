@@ -17,7 +17,7 @@ class ManufacturerController {
         respond manufacturer
     }
     def report() {
-        respond Manufacturer.list(), model:[categoryCount: Manufacturer.count()]
+        respond Manufacturer.list(), model:[manufacturerCount: Manufacturer.count()]
     }
     def create() {
         respond new Manufacturer(params)
