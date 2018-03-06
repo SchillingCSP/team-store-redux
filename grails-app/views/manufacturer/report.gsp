@@ -24,7 +24,7 @@
                 </td>
                 <td>
                     <ul>
-                        <g:each var="product" in="${team-store-redux.Product.findAllByManufacturer(manufacturer)}">
+                        <g:each var="product" in="${team.store.redux.Product.findAllByManufacturer(manufacturer)}">
                             <li><g:link class="show" action="show" resource="${product}">${product.name}</g:link></li>
                         </g:each>
                     </ul>
