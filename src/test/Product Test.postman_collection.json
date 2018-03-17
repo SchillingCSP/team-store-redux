@@ -1,0 +1,193 @@
+{
+	"info": {
+		"name": "Schilling Store Test",
+		"_postman_id": "3c5a4266-f755-7f52-54ba-fd8398d200e5",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product Index",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a061cd64-fa99-4e03-a4c0-0aa79a0b7d86",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is json\", function () {",
+							"    pm.expect(postman.getResponseHeader(\"Content-Type\")).to.contain('json');",
+							"});",
+							"",
+							"pm.test(\"Have Product product.id 1\", function () {",
+							"    var found = false;",
+							"    jsonData.forEach(function (product) {if (product.id == 1) found = true});",
+							"    pm.expect(found).to.eql(true);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/product/index.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"index.json"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Product Show 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b6f3cb74-f85f-4e4b-8087-68cb903554d6",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Have product product.id 1\", function () {",
+							"    pm.expect(jsonData.id).to.eql(1);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/product/show/1.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"show",
+						"1.json"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Product Save",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fb89e0d2-5419-41bb-8edd-898d3dae743f",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Have product number of 2\", function () {",
+							"    pm.expect(jsonData.id).to.eql(2);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n\t\"manufacturer\":{\n\t\t\"id\":1\n\t\t\n\t},\n\t\"rating\":\"1\",\n\t\"score\":1.0,\n\t\"price\":1.0,\n\t\"name\":\"Test Product\",\n\t\"category\":{\n\t\t\"id\":1\n\t},\n\t\"description\":\"Described\"}"
+				},
+				"url": {
+					"raw": "localhost:8080/product/save.json?",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"save.json"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Product Index <html>",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ee99940-23e4-4a69-bbcc-d5ae43907c69",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Content-Type is html\", function () {",
+							"    pm.expect(postman.getResponseHeader(\"Content-Type\")).to.contain('html');",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/product/index.html",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"index.html"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
