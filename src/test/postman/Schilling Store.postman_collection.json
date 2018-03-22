@@ -1,0 +1,202 @@
+{
+	"info": {
+		"name": "Schilling Store",
+		"_postman_id": "a754fa32-3039-1d72-9163-2e97110ca483",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ProductOrder index <html>",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "14c06072-84b5-4cb2-a9bc-4173056d6b16",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Content-Type is html\", function () {",
+							"    pm.expect(postman.getResponseHeader(\"Content-Type\")).to.contain('html');",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/productOrder/index",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productOrder",
+						"index"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ProductOrder index",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "07163315-8b60-4fa2-98ac-8c4faa08bf36",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is json\", function () {",
+							"    pm.expect(postman.getResponseHeader(\"Content-Type\")).to.contain('json');",
+							"});",
+							"",
+							"pm.test(\"Have productOrder product.id 1\", function () {",
+							"    var found = false;",
+							"    jsonData.forEach(function (order) {if (order.product.id == 1) found = true});",
+							"    pm.expect(found).to.eql(true);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/productOrder/index.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productOrder",
+						"index.json"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ProductOrder save",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b489b88c-7bdf-45af-bf28-c5d70e368a7a",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Have productOrder number is 3\", function () {",
+							"    pm.expect(jsonData.number).to.eql('3');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"product\": {\n            \"id\": 1\n        },\n        \"quantity\": 2,\n        \"number\": \"3\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/productOrder/save.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productOrder",
+						"save.json"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "four",
+							"equals": true,
+							"disabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ProductOrder show 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a072ca74-36b4-440c-b93a-c9c0ccad7209",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Have productOrder product.id 1\", function () {",
+							"    pm.expect(jsonData.product.id).to.eql(1);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/productOrder/show/1.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productOrder",
+						"show",
+						"1.json"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

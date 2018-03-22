@@ -1,0 +1,199 @@
+{
+	"info": {
+		"name": "team-store-redux",
+		"_postman_id": "fd23dc59-1391-4ee2-9431-66baac948ead",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Category index",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e0b15202-cc82-43f5-a1a6-adc4384eda21",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Have category name\", function () {",
+							"    var found = false;",
+							"    jsonData.forEach(function (category) {if (category.name == 'Category One') found = true});",
+							"    pm.expect(found).to.eql(true);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/category/index.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"index.json"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Category save",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3549903a-f4a5-46f4-ad7f-90b4fae8b8fb",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Have category number is Category One\", function () {",
+							"    pm.expect(jsonData.name).to.eql('Category One');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\t\"id\": 1,\n        \"name\": \"Category One\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/category/save.json?",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"save.json"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "four",
+							"equals": true,
+							"disabled": true
+						}
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Category show 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4095572d-56c1-4de0-b8b5-86d8e001da58",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Have category category.name Category One\", function () {",
+							"    pm.expect(jsonData.name).to.eql('Category One');",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/category/show/1.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"show",
+						"1.json"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Category index <html>",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "14c06072-84b5-4cb2-a9bc-4173056d6b16",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Content-Type is html\", function () {",
+							"    pm.expect(postman.getResponseHeader(\"Content-Type\")).to.contain('html');",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/productOrder/index",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productOrder",
+						"index"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		}
+	]
+}
