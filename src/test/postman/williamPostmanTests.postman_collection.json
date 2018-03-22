@@ -1,0 +1,159 @@
+{
+	"info": {
+		"name": "williamPostmanTests",
+		"_postman_id": "7c151c28-4bbe-a20f-b332-8565d62014b7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product index <html>",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "41e376d7-606d-4336-8bc3-c5f42a124f3e",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Content-Type is html\", function () {",
+							"    pm.expect(postman.getResponseHeader(\"Content-Type\")).to.contain('html');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/product/index",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"index"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Product index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/product/index.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"index.json"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Product save",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5788732a-a571-415d-b44e-56e846fb7ef0",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Have product, name is equal to 'Product two'\", function () {",
+							"    pm.expect(jsonData.name).to.eql('Product two');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": 1,\n        \"manufacturer\": {\n            \"id\": 1\n        },\n        \"rating\": \"3\",\n        \"score\": 3,\n        \"price\": 2,\n        \"name\": \"Product two\",\n        \"category\": {\n            \"id\": 1\n        },\n        \"description\": \"Described again\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/product/save.json?",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"save.json"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Product show 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fb6b5554-b568-4017-b73c-d58e665c9f41",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Have Product manufacturer.id 1\", function () {",
+							"    pm.expect(jsonData.manufacturer.id).to.eql(1);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/product/show/1.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"show",
+						"1.json"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
