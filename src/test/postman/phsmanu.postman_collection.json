@@ -20,7 +20,7 @@
 							"    pm.response.to.have.status(201);",
 							"});",
 							"",
-							"pm.test(\"Have productOrder number is 3\", function () {",
+							"pm.test(\"Have Manufacturer number is 3\", function () {",
 							"    pm.expect(jsonData.number).to.eql('3');",
 							"});"
 						]
@@ -40,13 +40,13 @@
 					"raw": "    {\n        \"product\": {\n            \"id\": 1\n        },\n        \"quantity\": 2,\n        \"number\": \"3\"\n    }"
 				},
 				"url": {
-					"raw": "localhost:8080/productOrder/save.json?",
+					"raw": "localhost:8080/Manufacturer/save.json?",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"productOrder",
+						"Manufacturer",
 						"save.json"
 					],
 					"query": [
@@ -87,13 +87,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:8080/productOrder/index",
+					"raw": "localhost:8080/Manufacturer/index",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"productOrder",
+						"Manufacturer",
 						"index"
 					]
 				}
@@ -115,7 +115,7 @@
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"pm.test(\"Have productOrder product.id 1\", function () {",
+							"pm.test(\"Have Manufacturer product.id 1\", function () {",
 							"    pm.expect(jsonData.product.id).to.eql(1);",
 							"});",
 							"",
@@ -134,13 +134,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:8080/productOrder/show/1.json",
+					"raw": "localhost:8080/Manufacturer/show/1.json",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"productOrder",
+						"Manufacturer",
 						"show",
 						"1.json"
 					]
@@ -167,7 +167,7 @@
 							"    pm.expect(postman.getResponseHeader(\"Content-Type\")).to.contain('json');",
 							"});",
 							"",
-							"pm.test(\"Have productOrder product.id 1\", function () {",
+							"pm.test(\"Have Manufacturer product.id 1\", function () {",
 							"    var found = false;",
 							"    jsonData.forEach(function (order) {if (order.product.id == 1) found = true});",
 							"    pm.expect(found).to.eql(true);",
@@ -188,13 +188,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:8080/productOrder/index.json",
+					"raw": "localhost:8080/Manufacturer/index.json",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"productOrder",
+						"Manufacturer",
 						"index.json"
 					]
 				}
