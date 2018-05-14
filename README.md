@@ -33,3 +33,18 @@ create-react-native-app AwesomeProject
 ## Scan the code on your device
 
 ## Install the Create a Project with React Native
+nvm install -g create-react-native-app
+from the working directory
+create-react-native-app schilling-store-rn-yourname
+cd schilling-store-rn-yourname
+npm start
+
+if you get errors, the you can probably run these commands to fix it:
+
+  sudo sysctl -w kern.maxfiles=5242880
+  sudo sysctl -w kern.maxfilesperproc=524288
+  
+Add this to the dependencies in package.json
+
+npm install --save react-navigation
+    "react-navigation": "^1.5.7"  

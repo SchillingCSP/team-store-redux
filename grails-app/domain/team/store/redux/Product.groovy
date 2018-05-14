@@ -8,6 +8,8 @@ class Product {
     Manufacturer manufacturer
     String rating
     Double score
+    // uri to the picture
+    String pic
 
     static constraints = {
         name nullable:false,blank:false,unique:true

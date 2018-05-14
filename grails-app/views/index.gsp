@@ -53,9 +53,8 @@
                     white-space: pre-line;
                 }
             </style>
-                Ketu-Sami: Styling and Create Project, Alex-Deryk: Categories, William-Emmett: Products, Sean-Parker: Manufacturers
             </h1>
-
+            <h2>Ketu-Sami: Styling and Create Project, Alex-Deryk: Categories, William-Emmett: Products, Sean-Parker: Manufacturers</h2>
 
             <div id="controllers" role="navigation">
             <div class="svg" role="presentation">
@@ -76,13 +75,15 @@
                 <div class="col-sm-6 col-right">
                     <g:link controller="manufacturer">Manufacturers</g:link>
                 </div>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller">
-                            <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-                        </li>
-                    </g:each>
-                </ul>
+                <div class="col-sm-6 col-right">
+                    <g:link controller="productOrder">Orders</g:link>
+                </div>
+                <div class="col-sm-6 col-right">
+                    <g:link controller="user">Users</g:link>
+                </div>
+                <div class="col-sm-6 col-right">
+                    <g:link controller="productReview">Reviews</g:link>
+                </div>
             </div>
         </section>
     </div>

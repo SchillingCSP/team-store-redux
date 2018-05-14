@@ -6,6 +6,8 @@ class ProductOrder {
     Product product
     Double quantity
 
+    static belongsTo = [user:User]
+
     static constraints = {
         number nullalbe:false
         product nullable:false
